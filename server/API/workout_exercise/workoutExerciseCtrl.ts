@@ -52,13 +52,21 @@ export async function getExercisesByWorkoutId(req, res) {
 
 export async function updateExercise(req, res) {
   try {
-    const { workout_exerecise_id, sets, reps, time, distance } = req.body;
+    const { id } = req.params;
+    const { sets, reps, time, distance } = req.body;
+
+    console.log(id)
+    console.log(sets)
+    console.log(reps)
+    console.log(time)
+    console.log(distance)
+
     const query = `UPDATE bestworkouts.workout_exerecise SET 
-      'sets' = '${sets}', 
-      'reps' = '${reps}', 
-      'time' = '${time}', 
-      'distance' = '${distance}' 
-      WHERE (workout_exerecise_id='${workout_exerecise_id}')`;
+      sets = ${sets}, 
+      reps = ${reps}, 
+      time = ${time}, 
+      distance = ${distance} 
+      WHERE (exercise_id=${id})`;
     connection.query(query, async (err, results, fields) => {
       try {
         if (err) throw err;

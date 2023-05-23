@@ -5,20 +5,21 @@ import WorkoutCollections from '../../components/workoutCollections/WorkoutColle
 import ExerciseCollections from '../../components/exerciseCollections/ExerciseCollections';
 import Workouts from './../../components/workouts/Workouts';
 import WorkoutModel from './workoutModel';
+import { useAppDispatch } from '../../app/hooks';
 
 const MyWorkouts = () => {
     const[workOutDisp, setWorkOutDisp] = useState<boolean>(false);
     const[workoutId, setWorkoutId] = useState<string>("");
     const[workoutName, setWorkoutName] = useState<string>("");
-    
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-      // dispatch(
-      //   changeNavBarDisp({
-      //    home: "block",
-      //    myWorkouts:"none"
-      //   })
-      // );
+      dispatch(
+        changeNavBarDisp({
+         home: "block",
+         myWorkouts:"none"
+        })
+      );
     }, []);
 
   return (

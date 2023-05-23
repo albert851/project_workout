@@ -9,7 +9,8 @@ interface ExerciseCollectionsProps {
 }
 
 const ExerciseCollections: FC<ExerciseCollectionsProps> = ({ workoutId, workoutName }) => {
-  const[exercises, setExercises] = useState<Exercise[]>([]); 
+  const[exercises, setExercises] = useState<Exercise[]>([]);
+  const[renderExercises, setRenderExercises] = useState<boolean>(false); 
 
   async function handleGetExercises() {
     try {
@@ -24,7 +25,7 @@ const ExerciseCollections: FC<ExerciseCollectionsProps> = ({ workoutId, workoutN
 
   useEffect(() => {
     handleGetExercises()
-  }, [workoutId]);
+  }, [workoutId, renderExercises]);
 
   return (
     <div className='exerciseCollections'>
@@ -33,7 +34,10 @@ const ExerciseCollections: FC<ExerciseCollectionsProps> = ({ workoutId, workoutN
       <div className='exerciseCollections__container'>
         <div className='exerciseCollections__box'>
           {exercises?.map((exercise) => {
-            return <MyExercise  exercise_id={exercise.exercise_id} thisExercise={exercise} />;
+            return <MyExercise  exercise_id={exercise.exercise_id} 
+              thisExercise={exercise} 
+              setRenderExercises={setRenderExercises} 
+              renderExercises={renderExercises} />;
           })}
         </div>
       </div>

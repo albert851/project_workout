@@ -35,12 +35,12 @@ const Main = () => {
     dispatch(getUserByCookie());
     getExercises(); 
 
-    // dispatch(
-    //   changeNavBarDisp({
-    //    home: "none",
-    //    myWorkouts:"block"
-    //   })
-    // );
+    dispatch(
+      changeNavBarDisp({
+       home: "none",
+       myWorkouts:"block"
+      })
+    );
   }, []);
 
   return (

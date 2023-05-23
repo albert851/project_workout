@@ -90,19 +90,19 @@ const NavBar: FC<NavBarProps> = ({ userDisplay, workouts, setWorkouts }) => {
         {user != null ? 
           <HomeIcon 
             className='navBar__menu__btn' 
-            style={{ display: "block" }}
+            style={{ display:  navBarDisp.home}}
             onClick={handleGoBack} 
             /> : null}
         {user != null ? 
           <CalendarMonthIcon 
             className='navBar__menu__btn' 
-            style={{ display: "block" }}
+            style={{ display: navBarDisp.myWorkouts }}
             onClick={handleMyWorkouts} 
             /> : null}
         {user != null ? 
           <MenuIcon 
             className='navBar__menu__btn' 
-            style={{ display: "block" }}
+            style={{ display: navBarDisp.myWorkouts }}
             onClick={handleworkout} 
             /> : null}
         {user != null ? 

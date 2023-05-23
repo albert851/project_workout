@@ -6,6 +6,7 @@ import Main from "./views/mainPage/MainPage";
 import LogIn from "./views/login/LogIn";
 import Register from "./views/register/Register";
 import MyWorkouts from "./views/myWorkouts/MyWorkouts";
+import NavBar from "./components/navbar/NavBar";
 
 
 function App() {
