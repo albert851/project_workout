@@ -1,0 +1,105 @@
+
+.newWorkout{
+    min-width: 355px;
+    width: 100%;
+    padding: 10px;
+    padding-top: 0px;
+    height: 77vh;
+    background-color: rgb(27, 27, 27);
+    border-radius: 10px;
+    
+    .newWorkout__header{
+        display: flex;
+        justify-content: space-between;
+
+        .newWorkout__header__title{
+            color: rgb(196, 196, 196);
+        }
+
+        .newWorkout__header__CloseBtn{
+            color: rgb(196, 196, 196);
+            margin-top: 10px;
+
+            &:hover{
+                color: whitesmoke;
+            }
+        }
+    }
+
+    .newWorkout__exerciseSelect{
+        padding: 10px;
+
+        .newWorkout__exerciseSelect__description{
+            color: rgb(196, 196, 196);
+            font-size: small;
+            margin-top: 5px;
+        }
+
+        .newWorkout__form{
+            .newWorkout__form__trainingDay{
+                display: flex;
+
+                p{
+                    color: rgb(123, 123, 123);
+                }
+
+                .newWorkout__form__select{
+                    color: rgb(196, 196, 196);
+                    background-color: rgb(123, 123, 123);
+                    height: 25px;
+                    border-radius: 8px;
+                    margin-left: 15px;
+                    margin-top: 17px;
+    
+                    &:focus {
+                        outline: none;
+                        color: whitesmoke;
+                    }
+                }
+            }
+
+            .exerciseSelect__form__box{
+                width: 100%;
+                height: 18em;
+                margin-top: 10px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: space-around;
+
+                &::-webkit-scrollbar {
+                    width: 10px;
+                    width: 10px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    border-radius: 5px;
+                    background-color: rgb(123, 123, 123);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 5px;
+                    background-color: rgb(74, 74, 74);
+                }
+            }
+
+            button{
+                padding: 5px;
+                margin-top: 10px;
+                background-color: rgb(16, 16, 20);
+                font-size: large;
+                border: 0px;
+                border-radius: 10px;
+                height: 40px;
+                width: 70px;
+                color: rgb(196, 196, 196);
+        
+                &:hover{
+                    color: whitesmoke;
+                }
+            }
+        }
+    }
+}

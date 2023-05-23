@@ -1,0 +1,37 @@
+
+.workouts{
+    min-width: 250px;
+    width: 35%;
+    padding: 10px;
+    height: 75vh;
+    background-color: rgb(27, 27, 27);
+    border-radius: 10px;
+    text-align: center;
+
+
+    button{
+        background-color: rgb(16, 16, 20);
+        color: rgb(196, 196, 196);
+        border: 0px;
+        width: 90%;
+        height: 40px;
+        border-radius: 10px;
+        font-size: large;
+
+        &:hover{
+            color: whitesmoke;
+        }
+    }
+
+    p{
+        color: rgb(196, 196, 196);
+        margin-top: 5px;
+        margin-bottom: 30px;
+        font-size:small;
+    }
+
+    .workouts__setsAndReps{
+        margin-top: 50px;
+    }
+    
+}

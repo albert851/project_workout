@@ -1,0 +1,30 @@
+
+.search{
+    
+    .search__input{
+        border-radius: 10px;
+        height: 25px;
+        border: 0px;
+        background-color: rgb(74, 74, 74);
+        margin-bottom: 10px;
+        padding-left: 10px;
+
+        &:focus {
+            outline: none;
+            color: whitesmoke;
+          }
+    }
+
+    .search__target{
+        color: rgb(196, 196, 196);
+        background-color: rgb(123, 123, 123);
+        height: 25px;
+        border-radius: 8px;
+        margin-left: 15px;
+
+        &:focus {
+            outline: none;
+            color: whitesmoke;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.card{
+    width: 30%;
+    padding: 5px;
+    text-align: center;
+
+    .card__img{
+        width: 80%;
+        height: 50%;
+        background-color: rgb(196, 196, 196);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        border-radius: 10px;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .card__name{
+        color: rgb(196, 196, 196);
+    }
+
+    &:hover{
+        .card__img{
+            background-color: whitesmoke;
+        }
+
+        .card__name{
+            color: whitesmoke;
+        }
+    }
+}

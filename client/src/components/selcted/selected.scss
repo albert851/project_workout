@@ -1,0 +1,41 @@
+
+.selected{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .selected__exercise{
+        width: 30%;
+        padding: 5px;
+        text-align: center;
+
+        .selected__exercise__img{
+            width: 80%;
+            height: 50%;
+            background-color: rgb(196, 196, 196);
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 0px;
+
+        button{
+            height: 30%;
+            width: 100%;
+            margin-top: 0px;
+            background-color: transparent;
+            color: rgb(27, 27, 27);
+        }
+
+        img{
+            width: 100%;
+            height: 70%;
+        }
+        }
+
+        h5{
+            color: rgb(196, 196, 196);
+        }
+    }
+}

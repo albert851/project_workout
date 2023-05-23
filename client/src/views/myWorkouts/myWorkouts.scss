@@ -1,0 +1,22 @@
+
+.myWorkout{
+    background-color: rgb(16, 16, 20);
+    border-radius: 5px;
+    height: 96vh;
+    overflow-y: hidden;
+    padding: 15px;
+
+    .main__note{
+        color: rgb(255, 12, 12);
+
+        margin-top: 0px;
+    }
+
+    .myWorkout__container{
+        display: flex;
+        gap: 15px;
+        height: 36rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+}

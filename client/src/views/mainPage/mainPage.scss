@@ -1,0 +1,25 @@
+
+.main{
+    background-color: rgb(16, 16, 20);
+    border-radius: 5px;
+    height: 96vh;
+    overflow-y: hidden;
+    padding: 15px;
+
+    .main__note{
+        color: rgb(255, 12, 12);
+
+        margin-top: 0px;
+    }
+
+    .main__container{
+        display: flex;
+        gap: 10px;
+        height: 36rem;
+        width: 100%;
+
+        .main__container__box{
+            width: 100%;
+        }
+    }
+}
