@@ -20,7 +20,10 @@ const MyExercise: FC<MyExerciseProps> = ({
   const [reps, setReps] = useState<number>(0);
   const [time, setTime] = useState<number>(0);
   const [distance, setdistance] = useState<number>(0);
-  const [inputValue, setInputValue] = useState<string>();
+  const [inputSetsValue, setInputSetsValue] = useState<string>();
+  const [inputRepsValue, setInputRepsValue] = useState<string>();
+  const [inputTimeValue, setInputTimeValue] = useState<string>();
+  const [inputDistanceValue, setInputDistanceValue] = useState<string>();
 
   async function handleGetExercise() {
     try {
@@ -43,15 +46,19 @@ const MyExercise: FC<MyExerciseProps> = ({
   const handleInput = (ev: any) => {
     if (ev.target.id == "1") {
       setSets(ev.target.value);
+      setInputSetsValue(ev.target.value);
     }
     if (ev.target.id == "2") {
       setReps(ev.target.value);
+      setInputRepsValue(ev.target.value);
     }
     if (ev.target.id == "3") {
       setTime(ev.target.value);
+      setInputTimeValue(ev.target.value);
     }
     if (ev.target.id == "4") {
       setdistance(ev.target.value);
+      setInputDistanceValue(ev.target.value);
     }
   };
 
@@ -68,7 +75,25 @@ const MyExercise: FC<MyExerciseProps> = ({
       );
       if (data) {
         setRenderExercises(!renderExercises);
-        setInputValue("");
+
+        setInputSetsValue("");
+        setInputRepsValue("");
+        setInputTimeValue("");
+        setInputDistanceValue("");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleDelte(ev: any) {
+    const workout_exerecise_id = thisExercise.workout_exerecise_id
+    try {
+      const { data } = await axios.delete(`/api/workoutExercise/delete/:${workout_exerecise_id}`);
+      console.log(data)
+
+      if(data.deleteExercise){
+        setRenderExercises(!renderExercises);
       }
     } catch (error) {
       console.error(error);
@@ -95,7 +120,7 @@ const MyExercise: FC<MyExerciseProps> = ({
           <input
             type="text"
             id="1"
-            value={inputValue}
+            value={inputSetsValue}
             onChange={handleInput}
           ></input>
         </div>
@@ -105,7 +130,7 @@ const MyExercise: FC<MyExerciseProps> = ({
           <input
             type="text"
             id="2"
-            value={inputValue}
+            value={inputRepsValue}
             onChange={handleInput}
           ></input>
         </div>
@@ -115,7 +140,7 @@ const MyExercise: FC<MyExerciseProps> = ({
           <input
             type="text"
             id="3"
-            value={inputValue}
+            value={inputTimeValue}
             onChange={handleInput}
           ></input>
         </div>
@@ -125,14 +150,17 @@ const MyExercise: FC<MyExerciseProps> = ({
           <input
             type="text"
             id="4"
-            value={inputValue}
+            value={inputDistanceValue}
             onChange={handleInput}
           ></input>
         </div>
       </div>
-      <button className="myExerciseCard__data__set" onClick={handleUpdate}>
-        Set
-      </button>
+      <div className="myExerciseCard__data__btns">
+        <button className="myExerciseCard__data__set" onClick={handleUpdate}>
+          Set
+        </button>
+        <button className="myExerciseCard__data__delex" onClick={handleDelte}>X</button>
+      </div>
     </div>
   );
 };

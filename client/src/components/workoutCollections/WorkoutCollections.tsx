@@ -34,13 +34,28 @@ const WorkoutCollections: FC<WorkoutCollectionsProps> = ({
     setWorkoutName(ev.target.name);
   };
 
+  async function handleDeletExercisesFromWorkout(id: string) {
+    const workout_id = id;
+    try {
+      const { data } = await axios.delete(`/api/workoutExercise/deleteWorkout/:${workout_id}`);
+      console.log(data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function hanfleDeleteWorkout(ev: any) {
+    handleDeletExercisesFromWorkout(ev.target.value);
+
+    try {
+      const { data } = await axios.delete(`/api/workoutUser/delete/:${ev.target.value}`);
+      console.log(data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
-    // dispatch(
-    //   changeNavBarDisp({
-    //    home: "block",
-    //    myWorkouts:"none"
-    //   })
-    // );
     handleGetWorkouts();
   }, []);
 
@@ -50,13 +65,18 @@ const WorkoutCollections: FC<WorkoutCollectionsProps> = ({
       <div className="wokoutCollections__box">
         {worouts?.map((worout) => {
           return (
-            <button
-              onClick={handleSelectWorkout}
-              name={worout.workout_type}
-              value={worout.workout_users_id}
-            >
-              {worout.workout_type}
-            </button>
+            <div className="box__btns">
+              <button
+                onClick={handleSelectWorkout}
+                name={worout.workout_type}
+                value={worout.workout_users_id}
+              >
+                {worout.workout_type}
+              </button>
+              <button className="box__btns__delete" 
+                value={worout.workout_users_id}
+                onClick={hanfleDeleteWorkout}>X</button>
+            </div>
           );
         })}
       </div>

@@ -81,3 +81,41 @@ export async function updateExercise(req, res) {
     res.status(500).send({ error: error.message });
   }
 }
+
+export async function deleteExerciseByWorkoutId(req, res) {
+  try {
+    const { workout_id } = req.params;
+    const query = `DELETE FROM bestworkouts.workout_exerecise WHERE (workout_id='${workout_id}')`;
+    connection.query(query, async (err, results, fields) => {
+      try {
+        if (err) throw err;
+
+        res.send({ deleteExerciseFromWorkout: true, userArray: results });
+      } catch (error) {
+        console.log(err);
+        res.status(500).send({ ok: false, error: error });
+      }
+    });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+}
+
+export async function deleteExercise(req, res) {
+  try {
+    const { workout_exerecise_id } = req.params;
+    const query = `DELETE FROM bestworkouts.workout_exerecise WHERE (workout_exerecise_id='${workout_exerecise_id}')`;
+    connection.query(query, async (err, results, fields) => {
+      try {
+        if (err) throw err;
+
+        res.send({ deleteExercise: true, userArray: results });
+      } catch (error) {
+        console.log(err);
+        res.status(500).send({ ok: false, error: error });
+      }
+    });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+}
