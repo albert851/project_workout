@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import NavBar from '../../components/navbar/NavBar';
+import NavBar from "../../components/navbar/NavBar";
 
 const Register = () => {
   const [email, setEmail] = useState();
@@ -9,7 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState();
   const [repeatPassword, setRepeatPassword] = useState();
   const navigate = useNavigate();
-  const[workOutDisp, setWorkOutDisp] = useState<boolean>(false);
+  const [workOutDisp, setWorkOutDisp] = useState<boolean>(false);
 
   async function handleSubmit(ev: any) {
     try {
@@ -29,11 +29,15 @@ const Register = () => {
   }
 
   return (
-    <div className='register'>
-      <NavBar userDisplay="none" setWorkouts={setWorkOutDisp} workouts={workOutDisp} />
+    <div className="register">
+      <NavBar
+        userDisplay="none"
+        setWorkouts={setWorkOutDisp}
+        workouts={workOutDisp}
+      />
       <form className="register__form" onSubmit={handleSubmit}>
-      <h2>Register</h2>
-        <div className='register__form__box'>
+        <h2>Register</h2>
+        <div className="register__form__box">
           <h4>Email:</h4>
           <input
             className="register__input"
@@ -46,7 +50,7 @@ const Register = () => {
             }}
           />
         </div>
-        <div className='register__form__box'>
+        <div className="register__form__box">
           <h4>Name:</h4>
           <input
             className="register__input"
@@ -59,7 +63,7 @@ const Register = () => {
             }}
           />
         </div>
-        <div className='register__form__box'>
+        <div className="register__form__box">
           <h4>Password</h4>
           <input
             className="register__input"
@@ -72,7 +76,7 @@ const Register = () => {
             }}
           />
         </div>
-        <div className='register__form__box'>
+        <div className="register__form__box">
           <h4>Repeat Password</h4>
           <input
             className="register__input"
@@ -83,17 +87,21 @@ const Register = () => {
             onInput={(ev: any) => {
               setRepeatPassword(ev.target.value);
             }}
-        />
+          />
         </div>
-        <button className="register__form__submit" type="submit">Register</button>
-        <Link className="register__loginLink"
+        <button className="register__form__submit" type="submit">
+          Register
+        </button>
+        <Link
+          className="register__loginLink"
           style={{ textDecoration: "none" }}
-          to={`/login`} >
+          to={`/login`}
+        >
           <p>To log-in click here</p>
         </Link>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

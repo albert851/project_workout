@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 export interface DaySelected {
-  day: string; 
+  day: string;
 }
 
 const initialState: DaySelected = {

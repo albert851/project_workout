@@ -34,11 +34,13 @@ const WorkoutCollections: FC<WorkoutCollectionsProps> = ({
     setWorkoutName(ev.target.name);
   };
 
-  async function handleDeletExercisesFromWorkout(id: string) {
-    const workout_id = id;
+  async function handleDeletExercisesFromWorkout(workoutId: string) {
     try {
-      const { data } = await axios.delete(`/api/workoutExercise/deleteWorkout/:${workout_id}`);
-      console.log(data)
+      console.log(workoutId);
+      const { data } = await axios.delete(
+        `/api/workoutExercise/deleteWorkout/${workoutId}`
+      );
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -46,10 +48,12 @@ const WorkoutCollections: FC<WorkoutCollectionsProps> = ({
 
   async function hanfleDeleteWorkout(ev: any) {
     handleDeletExercisesFromWorkout(ev.target.value);
-
+    const id = ev.target.value;
     try {
-      const { data } = await axios.delete(`/api/workoutUser/delete/:${ev.target.value}`);
-      console.log(data)
+      const { data } = await axios.delete(`/api/workoutUser/delete/${id}`);
+      if (data) {
+        handleGetWorkouts();
+      }
     } catch (error) {
       console.error(error);
     }
@@ -73,9 +77,13 @@ const WorkoutCollections: FC<WorkoutCollectionsProps> = ({
               >
                 {worout.workout_type}
               </button>
-              <button className="box__btns__delete" 
+              <button
+                className="box__btns__delete"
                 value={worout.workout_users_id}
-                onClick={hanfleDeleteWorkout}>X</button>
+                onClick={hanfleDeleteWorkout}
+              >
+                X
+              </button>
             </div>
           );
         })}

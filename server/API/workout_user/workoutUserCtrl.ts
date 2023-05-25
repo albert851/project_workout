@@ -34,13 +34,15 @@ export async function getWorkoutsByUserId(req, res) {
     });
   } catch (error) {
     res.status(500).send({ error: error.message });
-  }    
+  }
 }
 
 export async function deleteWorkout(req, res) {
   try {
-    const { workout_users_id } = req.params;
-    const query = `DELETE FROM bestworkouts.workout_users WHERE 'workout_users_id'='${workout_users_id}'`;
+    const { id } = req.params;
+    const workout_users_id = id;
+
+    const query = `DELETE FROM bestworkouts.workout_users WHERE workout_users_id = '${workout_users_id}'`;
     connection.query(query, async (err, results, fields) => {
       try {
         if (err) throw err;

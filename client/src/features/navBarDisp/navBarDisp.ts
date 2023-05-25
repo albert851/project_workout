@@ -3,7 +3,7 @@ import { RootState } from "../../app/store";
 
 export interface NavBarDisp {
   home: string;
-  myWorkouts: string; 
+  myWorkouts: string;
 }
 
 const initialState: NavBarDisp = {

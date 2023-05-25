@@ -8,8 +8,8 @@ export const getUserByCookie = createAsyncThunk(
     try {
       const { data } = await axios.get("/api/users/get-user-by-cookie");
       if (!data) throw new Error("no data from get_user_by_cookie");
-      if (data.error) throw new Error("an error accord")
-      const {userArray} = data
+      if (data.error) throw new Error("an error accord");
+      const { userArray } = data;
       return userArray[0];
     } catch (error: any) {
       console.error(error);

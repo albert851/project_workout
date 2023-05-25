@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavBar from '../../components/navbar/NavBar';
+import NavBar from "../../components/navbar/NavBar";
 
 const LogIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const[workOutDisp, setWorkOutDisp] = useState<boolean>(false);
+  const [workOutDisp, setWorkOutDisp] = useState<boolean>(false);
 
   async function handleSubmit(ev: any) {
     try {
@@ -25,13 +25,16 @@ const LogIn = () => {
     }
   }
 
-
   return (
-    <div className='login'>
-       <NavBar userDisplay="none" setWorkouts={setWorkOutDisp} workouts={workOutDisp} />
-       <form className="login__form" onSubmit={handleSubmit}>
+    <div className="login">
+      <NavBar
+        userDisplay="none"
+        setWorkouts={setWorkOutDisp}
+        workouts={workOutDisp}
+      />
+      <form className="login__form" onSubmit={handleSubmit}>
         <h2>Log In</h2>
-        <div className='login__form__box'>
+        <div className="login__form__box">
           <h4>Email:</h4>
           <input
             className="login__input"
@@ -40,11 +43,11 @@ const LogIn = () => {
             placeholder="email"
             required
             onInput={(ev: any) => {
-            setEmail(ev.target.value);
-          }}
+              setEmail(ev.target.value);
+            }}
           />
         </div>
-        <div className='login__form__box'>
+        <div className="login__form__box">
           <h4>Password:</h4>
           <input
             className="login__input"
@@ -53,8 +56,8 @@ const LogIn = () => {
             placeholder="password"
             required
             onInput={(ev: any) => {
-            setPassword(ev.target.value);
-          }}
+              setPassword(ev.target.value);
+            }}
           />
         </div>
         <button className="login__form__submit" type="submit">
@@ -69,7 +72,7 @@ const LogIn = () => {
         </Link>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default LogIn
+export default LogIn;

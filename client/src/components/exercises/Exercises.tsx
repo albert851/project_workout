@@ -81,7 +81,9 @@ const Exercises: FC<ExerciseshProps> = ({ exercises }) => {
     const exercise_2 = exercises.filter((e) => e.name == "Pull-Ups");
     const exercise_3 = exercises.filter((e) => e.name == "Barbell Squats");
     const exercise_4 = exercises.filter((e) => e.name == "Bear Crawls");
-    const exercise_5 = exercises.filter((e) => e.name == "Bicycles/Cross-body Crunches");
+    const exercise_5 = exercises.filter(
+      (e) => e.name == "Bicycles/Cross-body Crunches"
+    );
 
     sendExercise(exercise_1[0]);
     sendExercise(exercise_2[0]);
@@ -91,9 +93,9 @@ const Exercises: FC<ExerciseshProps> = ({ exercises }) => {
   };
 
   const handleStrength = () => {
-    const workoutType = (Math.floor(Math.random() * 3)+1);
+    const workoutType = Math.floor(Math.random() * 3) + 1;
 
-    if(workoutType == 1){
+    if (workoutType == 1) {
       if (middleChest) {
         const currentExercise =
           middleChest[Math.floor(Math.random() * middleChest.length)];
@@ -120,7 +122,7 @@ const Exercises: FC<ExerciseshProps> = ({ exercises }) => {
         sendExercise(currentExercise);
       }
     }
-    if(workoutType == 2){
+    if (workoutType == 2) {
       if (middleBack) {
         const currentExercise =
           middleBack[Math.floor(Math.random() * middleBack.length)];
@@ -142,12 +144,10 @@ const Exercises: FC<ExerciseshProps> = ({ exercises }) => {
         sendExercise(currentExercise);
       }
       if (abs) {
-        const currentExercise =
-          abs[Math.floor(Math.random() * abs.length)];
+        const currentExercise = abs[Math.floor(Math.random() * abs.length)];
         sendExercise(currentExercise);
       }
-    }
-    else{
+    } else {
       if (cardio) {
         const currentExercise =
           cardio[Math.floor(Math.random() * cardio.length)];
@@ -245,7 +245,8 @@ const Exercises: FC<ExerciseshProps> = ({ exercises }) => {
     <div className="exercises">
       {exercises.map((exercise, index) => {
         return <Card key={index} exercise={exercise} />;
-      })};
+      })}
+      ;
     </div>
   );
 };

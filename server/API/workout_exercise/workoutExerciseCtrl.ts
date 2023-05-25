@@ -55,11 +55,11 @@ export async function updateExercise(req, res) {
     const { id } = req.params;
     const { sets, reps, time, distance } = req.body;
 
-    console.log(id)
-    console.log(sets)
-    console.log(reps)
-    console.log(time)
-    console.log(distance)
+    console.log(id);
+    console.log(sets);
+    console.log(reps);
+    console.log(time);
+    console.log(distance);
 
     const query = `UPDATE bestworkouts.workout_exerecise SET 
       sets = ${sets}, 
@@ -84,8 +84,10 @@ export async function updateExercise(req, res) {
 
 export async function deleteExerciseByWorkoutId(req, res) {
   try {
-    const { workout_id } = req.params;
-    const query = `DELETE FROM bestworkouts.workout_exerecise WHERE (workout_id='${workout_id}')`;
+    const { workoutId } = req.params;
+    const workout_id = workoutId;
+
+    const query = `DELETE FROM bestworkouts.workout_exerecise WHERE workout_id = '${workout_id}'`;
     connection.query(query, async (err, results, fields) => {
       try {
         if (err) throw err;
@@ -103,8 +105,10 @@ export async function deleteExerciseByWorkoutId(req, res) {
 
 export async function deleteExercise(req, res) {
   try {
-    const { workout_exerecise_id } = req.params;
-    const query = `DELETE FROM bestworkouts.workout_exerecise WHERE (workout_exerecise_id='${workout_exerecise_id}')`;
+    const { exerciseId } = req.params;
+    const workout_exerecise_id = exerciseId;
+
+    const query = `DELETE FROM bestworkouts.workout_exerecise WHERE workout_exerecise_id = ${workout_exerecise_id}`;
     connection.query(query, async (err, results, fields) => {
       try {
         if (err) throw err;

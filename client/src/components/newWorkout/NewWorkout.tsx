@@ -101,13 +101,13 @@ const NewWorkout: FC<NewWorkoutProps> = ({ selectedWorkout, value }) => {
   };
 
   async function handleAddWorkout() {
-    if(trainingDay){
+    if (trainingDay) {
       try {
         const { data } = await axios.post("/api/workoutUser/add", {
           user_id: user?.user_id,
           workout_type: value,
         });
-  
+
         if (data.ok) {
           setWorkout_id(data.results.insertId);
         }

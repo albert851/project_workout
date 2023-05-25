@@ -1,4 +1,4 @@
-import React, { FC,useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   exerciseSelector,
@@ -17,10 +17,8 @@ const Selected: FC<SelectedProps> = ({ workout }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(
-      daySelected({day: workout})
-    );
-  }, [])
+    dispatch(daySelected({ day: workout }));
+  }, []);
 
   return (
     <div className="selected">
@@ -31,7 +29,9 @@ const Selected: FC<SelectedProps> = ({ workout }) => {
               <button
                 id={exercise.id}
                 onClick={(event: any) =>
-                  dispatch(removeFromArr(event?.target.id))}>
+                  dispatch(removeFromArr(event?.target.id))
+                }
+              >
                 Delete
               </button>
               <img src={exercise.pic_URL} />

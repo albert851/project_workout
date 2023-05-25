@@ -95,7 +95,10 @@ export async function getAllUsers(req, res) {
   }
 }
 
-export async function getUserByCookie(req: express.Request, res: express.Response) {
+export async function getUserByCookie(
+  req: express.Request,
+  res: express.Response
+) {
   try {
     const secret = process.env.JWT_SECRET;
     if (!secret) throw new Error("Couldn't load secret from .env");

@@ -87,12 +87,14 @@ const MyExercise: FC<MyExerciseProps> = ({
   }
 
   async function handleDelte(ev: any) {
-    const workout_exerecise_id = thisExercise.workout_exerecise_id
+    const exerciseId = thisExercise.workout_exerecise_id;
     try {
-      const { data } = await axios.delete(`/api/workoutExercise/delete/:${workout_exerecise_id}`);
-      console.log(data)
+      const { data } = await axios.delete(
+        `/api/workoutExercise/delete/${exerciseId}`
+      );
+      console.log(data);
 
-      if(data.deleteExercise){
+      if (data.deleteExercise) {
         setRenderExercises(!renderExercises);
       }
     } catch (error) {
@@ -159,7 +161,9 @@ const MyExercise: FC<MyExerciseProps> = ({
         <button className="myExerciseCard__data__set" onClick={handleUpdate}>
           Set
         </button>
-        <button className="myExerciseCard__data__delex" onClick={handleDelte}>X</button>
+        <button className="myExerciseCard__data__delex" onClick={handleDelte}>
+          X
+        </button>
       </div>
     </div>
   );
